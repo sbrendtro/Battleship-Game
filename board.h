@@ -10,6 +10,7 @@ friend istream& getline(istream&, board&);
 
 
 public:
+static const int DEFAULT_MUNITIONS = 25;
 board();
 ~board();
 void initializeBoard();//initiliaze board... make a two dymanic array board based on level of difficulty entered from battleshipgame class
