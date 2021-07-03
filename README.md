@@ -12,3 +12,6 @@ Destroyer (occupies 4 squares in a plane)
 Carrier (occupies 5 squares in a plane)
 
 See you out there, Captain.
+
+# Fork
+This project has been forked by `@sbrendtro` and `@01556`. We aim to cleanup the codebase and further improve game functionality. For more information, see `TODO.md`
