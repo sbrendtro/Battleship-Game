@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <sstream>
 #include "battleshipgame.h"
+#include "messages.h"
 
 using namespace std;
 
@@ -146,7 +147,7 @@ void board::intro() const
   cout << setfill(' ') << setw(10) << ' ' << setfill('*') << setw(4) << ' ' << endl;
   cout << setw(3) << '*' << ' ' << setw(69) << setfill(' ') << ' ' << setfill('*') << ' ' << setw(3) << '*' << endl;
 
-  usleep(1000);
+  usleep(battleshipMessages::PADDING);
 
   cout << setw(3) << '*' << ' ' << setfill(' ') << setw(30) << ' ';
   cout << "Submarine ";
@@ -161,7 +162,7 @@ void board::intro() const
   cout << setfill(' ') << setw(6) << ' ' << setfill('*') << setw(4) << ' ' << endl;
   cout << setw(3) << '*' << ' ' << setw(69) << setfill(' ') << ' ' << setfill('*') << ' ' << setw(3) << '*' << endl;
 
-  usleep(1000);
+  usleep(battleshipMessages::PADDING);
 
   cout << setw(3) << '*' << ' ' << setfill(' ') << setw(30) << ' ';
   cout << "Destroyer ";
@@ -175,7 +176,7 @@ void board::intro() const
   cout << setfill(' ') << setw(15) << ' ' << setfill('*') << setw(4) << ' ' << endl;
   cout << setw(3) << '*' << ' ' << setw(69) << setfill(' ') << ' ' << setfill('*') << ' ' << setw(3) << '*' << endl;
 
-  usleep(1000);
+  usleep(battleshipMessages::PADDING);
 
   cout << setw(3) << '*' << ' ' << setfill(' ') << setw(31) << ' ';
   cout << "Carrier ";
@@ -192,7 +193,7 @@ void board::intro() const
   cout << setfill(' ') << setw(15) << ' ' << setfill('*') << setw(4) << ' ' << endl;
   cout << setw(3) << '*' << ' ' << setw(69) << setfill(' ') << ' ' << setfill('*') << ' ' << setw(3) << '*' << endl;
 
-  usleep(1000);
+  usleep(battleshipMessages::PADDING);
 
   cout << setw(77) << '*' << endl;
   cout << setw(3) << '*' << ' ' << setw(69) << setfill(' ') << ' ' << setfill('*') << ' ' << setw(3) << '*' << endl;
@@ -214,12 +215,12 @@ void board::intro() const
   cout << setfill('*') << setw(25) << ' ' << setfill('*') << setw(4) << ' ' << endl
        << endl;
 
-  usleep(1000);
+  usleep(battleshipMessages::PADDING);
 }
 
 bool board::placeship(int x, int y, int dir, int size, int lvl, char t)
 {
-  int i, p, row, col, bsize;
+  int row, col, bsize;
   row = x;
   col = y;
   if (lvl == 1)
@@ -311,12 +312,14 @@ void board::setCoords(char x, int y)
     }
     else
     {
-      cout << "Why do you insist on wasting precious ammo on targets we've hit?" << endl;
+      // target has already been hit
+      cout << battleshipMessages::TARGET_ALREADY_HIT << endl;
     }
   }
   else
   {
-    cout << "Your line-of-sight is off, Captain. Don't let us relieve you of your duties." << endl;
+    // you have missed the target
+    cout << battleshipMessages::TARGET_MISSED << endl;
   }
 }
 
@@ -326,7 +329,7 @@ istream &getline(istream &obj, board &xxx)
   getline(obj, xxx.hitstr);
   cout << xxx.hitstr << endl;
 
-  for (int i = 0; i < xxx.hitstr.length(); i++)
+  for (int i = 0; i < (int) xxx.hitstr.length(); i++)
   {
     if (xxx.hitstr[i] == ' ')
     {
