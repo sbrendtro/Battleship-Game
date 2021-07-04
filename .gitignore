@@ -1,5 +1,6 @@
 # Enviroment
-.vscode
+.vscode/*
+.DS_Store
 
 # Prerequisites
 *.d
