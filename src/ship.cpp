@@ -5,41 +5,46 @@
 
 using namespace std;
 
-ship::ship()
+ship::ship ()
 {
-    shipx = ((rand() % (9 - 1)) + 1);
-    shipy = ((rand() % (9 - 1)) + 1);
-    shipHV = ((rand() % (3 - 1)) + 1);
-    size = 3;
+  shipx = ((rand () % (9 - 1)) + 1);
+  shipy = ((rand () % (9 - 1)) + 1);
+  shipHV = ((rand () % (3 - 1)) + 1);
+  size = 3;
 }
 
-ship::ship(int num)
+ship::ship (int num)
 {
-    size = num;
+  size = num;
 }
 
-ship::~ship()
+ship::~ship ()
 {
 }
 
-int ship::setx()
+int
+ship::setx ()
 {
-    shipx = ((rand() % (9 - 1)) + 1);
-    return shipx;
-}
-int ship::sety()
-{
-    shipy = ((rand() % (9 - 1)) + 1);
-    return shipy;
+  shipx = ((rand () % (9 - 1)) + 1);
+  return shipx;
 }
 
-int ship::getsize()
+int
+ship::sety ()
 {
-    return size;
+  shipy = ((rand () % (9 - 1)) + 1);
+  return shipy;
 }
 
-int ship::setHV()
+int
+ship::getsize ()
 {
-    shipHV = ((rand() % (3 - 1)) + 1);
-    return shipHV;
+  return size;
+}
+
+int
+ship::setHV ()
+{
+  shipHV = ((rand () % (3 - 1)) + 1);
+  return shipHV;
 }
