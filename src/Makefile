@@ -1,6 +1,8 @@
 CC=g++
 CFLAGS=-Wall
 
+STDIN=/dev/stdin
+
 OBJS=main.o messages.o battleshipgame.o board.o ship.o
 BIN=./battleship.out
 
@@ -12,6 +14,6 @@ $(BIN): $(OBJS)
 	$(CC) $(CFLAGS) -c $^
 
 run: $(BIN)
-	$^
+	$^ < $(STDIN) |more
 clean:
 	rm a.out *.o $(BIN)
