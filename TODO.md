@@ -7,8 +7,9 @@
 
 ## Cleanup
 - Makefile/Code cleanup ✓
-- Anything else you see in the game that could be cleaned up
+- File structure ✓
+- Anything else you see in the game that could be cleaned up ✓
 
-## Optional
+## Elective
 - Implement an curses-based UI, featuring items shown under `Features`
 - Add `more` integration, such that long text becomes scrollable
